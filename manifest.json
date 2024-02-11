@@ -14,7 +14,7 @@
     "browser_action": {
       "default_icon": "icons/tyler1ify_icon_32.png",
       "default_title": "Tyler1ify",
-      "default_popup": "widget/settings.html"
+      "default_popup": "popup/popup.html"
     },
   
     "web_accessible_resources": [
