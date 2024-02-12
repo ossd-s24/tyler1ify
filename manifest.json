@@ -1,24 +1,21 @@
 {
-    "manifest_version": 2,
-    "name": "Tyler1ify",
-    "version": "1.0",
-  
-    "description": "Tyler1ify overlays the thumbnails of Youtube videos with Tyler1 reaction images.",
-    "homepage_url": "https://github.com/ossd-s24/tyler1ify",
-    "icons": {
-      "48": "icons/tyler1ify_icon_48.png"
-    },
-  
-    "permissions": ["activeTab"],
-  
-    "browser_action": {
-      "default_icon": "icons/tyler1ify_icon_32.png",
-      "default_title": "Tyler1ify",
-      "default_popup": "popup/popup.html"
-    },
-  
-    "web_accessible_resources": [
-      "images_tyler1"
-    ]
+  "manifest_version": 2,
+  "name": "Tyler1ify",
+  "version": "1.0",
+  "description": "Tyler1ify overlays the thumbnails of Youtube videos with Tyler1 reaction images.",
+  "homepage_url": "https://github.com/ossd-s24/tyler1ify",
+  "icons": {
+    "48": "icons/tyler1ify_icon_48.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_icon": "icons/tyler1ify_icon_32.png",
+    "default_title": "Tyler1ify",
+    "default_popup": "popup/popup.html"
+  },
+  "web_accessible_resources": [
+    "images_tyler1"
+  ]
 }
-  
