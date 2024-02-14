@@ -21,14 +21,18 @@ function applyOverlay(thumbnailElement, overlayImgPath) {
     thumbnailElement.parentElement.insertBefore(overlay, thumbnailElement.nextSibling);
 }
 
-function findThumbnails() { //returns a list of thumbnail elements in the DOM
-    const thumbnailImages = document.querySelectorAll("ytd-thumbnail:not(.ytd-video-preview,.ytd-rich-grid-slim-media) a > yt-image > img.yt-core-image:only-child:not(.yt-core-attributed-string__image-element)");
+function findThumbnails() {
+    // thumbnails on home page
+    const homepageThumbnails = document.querySelectorAll("ytd-thumbnail:not(.ytd-video-preview,.ytd-rich-grid-slim-media) a > yt-image > img.yt-core-image:only-child:not(.yt-core-attributed-string__image-element)");
+
+    // thumbnails in notifications
     const notificationImages = document.querySelectorAll('img.style-scope.yt-img-shadow[width="86"]');
 
     const homePageImages = [ // Put all the selected images into an array
-        ...Array.from(thumbnailImages),
+        ...Array.from(homepageThumbnails),
         ...Array.from(notificationImages),
     ];
+    // check to see if we found any thumbnails
     console.log(thumbnailImages.length, "thumbnails found on homepage.")
 
     // filter images by aspect ratio
