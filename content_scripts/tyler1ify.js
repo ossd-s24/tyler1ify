@@ -1,24 +1,35 @@
-const imgPath = "../images_tyler1"
+const imgPath = "images_tyler1/"
+const IMAGELIST = [
+    'a.png',
+    'b.png',
+    'c.png',
+    'd.png',
+    'e.png',
+    'f.png',
+    'g.png',
+    'h.png',
+]
 
 //Apply overlay to a thumbnail
 function applyOverlay(thumbnailElement, overlayImgPath) {
     let overlay = document.createElement("img");
-    overlay.src = overlayImgPath;
+    overlay.src = browser.runtime.getURL(overlayImgPath);
     overlay.style.position = "absolute";
     overlay.style.width = "100%";
-    overlay.style.transform = 'translate(-50%, -50%)';
+    overlay.style.transform = 'translate(-100%, 0%)';
     overlay.style.zIndex = "0"; //put overlay ahead of thumbnail but behind time so it looks normal
     thumbnailElement.parentElement.insertBefore(overlay, thumbnailElement.nextSibling);
 }
 
 function findThumbnails() { //returns a list of thumbnail elements in the DOM
-    const thumbnailImages = document.querySelectorAll("ytd-thumbnail:not(.ytd-video-preview, .ytd-rich-grid-slim-media) a > yt-image > img.yt-core-image:only-child:not(.yt-core-attributed-string__image-element)");
+    const thumbnailImages = document.querySelectorAll("ytd-thumbnail:not(.ytd-video-preview,.ytd-rich-grid-slim-media) a > yt-image > img.yt-core-image:only-child:not(.yt-core-attributed-string__image-element)");
     const notificationImages = document.querySelectorAll('img.style-scope.yt-img-shadow[width="86"]');
 
     const homePageImages = [ // Put all the selected images into an array
         ...Array.from(thumbnailImages),
         ...Array.from(notificationImages),
     ];
+    console.log(thumbnailImages.length, "thumbnails found on homepage.")
 
     // filter images by aspect ratio
 
@@ -71,35 +82,25 @@ function findThumbnails() { //returns a list of thumbnail elements in the DOM
 
 function executeOverlays() { //use list from findThumbnails with applyOverlay() to apply overlays to all thumbnails
     const thumbnails = findThumbnails();
-    // for (let i = 0; i < thumbnails.length; i++) {
-    //     const thumbnail = thumbnails[i];
-    //     applyOverlay(thumbnail, chrome.runtime.getURL(`${imgPath}/tyler1.png`));
-    // }
-}
-
-function fakeRandomShuffle() {//OPTIONAL FUNCTION: use various algorithms to ensure non-repeating thumbnails, completely unnecessary but would be cool
-    // for now, just return the list of images to replace the thumbnails
-    // get all png under images_tyler1
-
-    // TODO: use a map function to get the images
-    const images = [
-        'images_tyler1/a.png',
-        'images_tyler1/b.png',
-        'images_tyler1/c.png',
-        'images_tyler1/d.png',
-        'images_tyler1/e.png',
-        'images_tyler1/f.png',
-        'images_tyler1/g.png',
-        'images_tyler1/h.png',
-    ]
-    return new Promise((resolve, reject) => {
-        resolve(images);
+    thumbnails.forEach((thumbnail, index) => {
+        const overlay = IMAGELIST[index % IMAGELIST.length]; // cycle through the list of overlays, TODO: maybe random?
+        applyOverlay(thumbnail, `${imgPath}/${overlay}`);
     });
 }
 
-fakeRandomShuffle()
-    .then((images) => {
-        console.log(images)
-        setInterval(executeOverlays, 100);
-        console.log("Tyler1fy Loaded Successfully.");
-    })
+
+var int = '';
+browser.runtime.onMessage.addListener((message) => {
+    if (message.action === 'enableExtension') {
+        console.log("Extension enabled.");
+        int = setInterval(executeOverlays, 100);
+    } else if (message.action === 'disableExtension') {
+        console.log("Extension disabled.");
+        // Remove all overlays
+        const overlays = document.querySelectorAll("img[src*='extension']");
+        overlays.forEach(overlay => overlay.remove());
+        clearInterval(int);
+    }
+});
+int = setInterval(executeOverlays, 100);
+

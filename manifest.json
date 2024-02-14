@@ -17,5 +17,15 @@
   },
   "web_accessible_resources": [
     "images_tyler1"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
+      "js": [
+        "content_scripts/tyler1ify.js"
+      ]
+    }
   ]
 }

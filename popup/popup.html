@@ -1,33 +1,35 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="popup.css" />
-  </head>
 
-  <body>
-    <div id="popup-content">
-      <center>
-        <img src="../icons/tyler1ify_icon_96.png" alt="tyler1ify icon">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
 
-        <div id="toggle-switch">
-          <div class="about">Tyler1ify overlays the thumbnails of Youtube videos with Tyler1 reaction images.</div>
-          <hr>
-          
-          <div class="switch-label">Enable Tyler1ify</div>
-          <div>
-            <label class="switch">
-              <input type="checkbox">
-              <span></span>
-            </label>
-          </div>
-          
+<body>
+  <div id="popup-content">
+    <center>
+      <img src="../icons/tyler1ify_icon_96.png" alt="tyler1ify icon">
+
+      <div id="toggle-switch">
+        <div class="about">Tyler1ify overlays the thumbnails of Youtube videos with Tyler1 reaction images.</div>
+        <hr>
+
+        <div class="switch-label">Enable Tyler1ify</div>
+        <div>
+          <label class="switch">
+            <input type="checkbox" id="toggle" checked>
+            <span></span>
+          </label>
         </div>
-      </center>
-    </div>
-    <div id="error-content" class="hidden">
-      <p>Tyler1ify encountered an error...</p>
-    </div>
-    <script src="popup.js"></script>
-  </body>
+
+      </div>
+    </center>
+  </div>
+  <div id="error-content" class="hidden">
+    <p>Tyler1ify encountered an error...</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
 </html>
