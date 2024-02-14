@@ -14,6 +14,9 @@ We take our open source community seriously and hold ourselves and other contrib
 - Make a Pull Request with edits addressing an issue. 
 - PRs are always welcome and will always be evaulated by a maintainer.
 
+3. **Contribute More Tyler1 Images**
+- Make a Pull Request with new images.
+
 # How to Contribute
 1. Fork the repository to your own Github account.
 2. Clone the project to your machine.
