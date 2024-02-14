@@ -1,6 +1,6 @@
 # Tyler1ify Firefox Extension
 
-Tyler1ify is a Firefox extension that overlays the thumbnails of Youtube videos with Tyler1 reaction images.
+Tyler1ify is a Firefox extension that overlays the thumbnails of Youtube videos with Tyler1 reaction images. Inspired by Mr.Beastify For Youtube.
 
 ## Features
 - Widget allowing you to enable or disable this extension.
