@@ -1,6 +1,5 @@
 
 # Contributor Code of Conduct 
-![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-33c4f5)
 
 ## Our Pledge
 We seek to foster an open and welcoming environment. As contributors and maintainers, we pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
