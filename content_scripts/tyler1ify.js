@@ -32,8 +32,7 @@ function findThumbnails() {
         ...Array.from(homepageThumbnails),
         ...Array.from(notificationImages),
     ];
-    // check to see if we found any thumbnails
-    console.log(thumbnailImages.length, "thumbnails found on homepage.")
+    // console.log(thumbnailImages.length, "thumbnails found on homepage.")
 
     // filter images by aspect ratio
 
@@ -79,8 +78,8 @@ function findThumbnails() {
         return processed.length == 0;
     })
 
-    console.log(res.length, "thumbnails found.")
-    console.log('data', res)
+    // console.log(res.length, "thumbnails found.")
+    // console.log('data', res)
     return res;
 }
 
