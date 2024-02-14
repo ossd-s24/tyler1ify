@@ -29,7 +29,7 @@ function findThumbnails() { //returns a list of thumbnail elements in the DOM
         ...Array.from(thumbnailImages),
         ...Array.from(notificationImages),
     ];
-    console.log(thumbnailImages.length, "thumbnails found on homepage.")
+    // console.log(thumbnailImages.length, "thumbnails found on homepage.")
 
     // filter images by aspect ratio
 
@@ -75,8 +75,8 @@ function findThumbnails() { //returns a list of thumbnail elements in the DOM
         return processed.length == 0;
     })
 
-    console.log(res.length, "thumbnails found.")
-    console.log('data', res)
+    // console.log(res.length, "thumbnails found.")
+    // console.log('data', res)
     return res;
 }
 
